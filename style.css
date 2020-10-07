@@ -1,0 +1,109 @@
+body {
+  font-family: "Roboto", sans-serif;
+  width: 80%;
+  margin: 5% auto; /*margin-top and bottom of 5% of the screen size*/
+}
+body h1,
+body h2 {
+  color: #00b5c3;
+  margin: 10px 0;
+}
+body .title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+body hr {
+  margin-top: 2%;
+  border-color: #00b5c3;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-column-gap: 2%;
+}
+
+header .logo img {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 25vh;
+  border-radius: 20px;
+  border: 5px solid #00b5c3;
+}
+
+header .meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 2%;
+}
+
+.layout {
+  display: grid; /*Layout 2 column */
+  grid-template-columns: 40% auto; /*My first column is 40% of the body size, 
+                                    whereas the second column auto-matically takes the remaining body size*/
+  grid-column-gap: 2%; /* avoid the overlapping*/
+}
+.layout a {
+  color: #000;
+  text-decoration: none;
+  font-size: 2em;
+  padding: 2% 2% 2% 0;
+}
+a:hover {
+  color: #00b5c3;
+}
+.layout .email,
+.layout .website {
+  font-size: 1em;
+}
+.layout .education {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 3%;
+}
+aside {
+  float: right;
+}
+.work-experiences {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  height: 50vh;
+  background-color: #f4f3f1;
+  padding: 5%;
+}
+.work-experiences .description {
+  margin: 1%;
+  font-size: 0.8em;
+}
+/* Container for skill bars */
+.container {
+  width: 100%; /* Full width */
+  background-color: #ddd; /* Grey background */
+
+  border-radius: 20px;
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+  height: 8px;
+}
+
+.html-css {
+  width: 90%;
+  line-height: 8px;
+  background-color: #4caf50;
+} /* Green */
+.js {
+  width: 75%;
+  line-height: 8px;
+  background-color: #2196f3;
+} /* Blue */
+.php {
+  width: 65%;
+  line-height: 8px;
+  background-color: #f44336;
+} /* Red */
