@@ -1,109 +1,194 @@
+/*the layout with grid*/
 body {
-  font-family: "Roboto", sans-serif;
-  width: 80%;
-  margin: 5% auto; /*margin-top and bottom of 5% of the screen size*/
-}
-body h1,
-body h2 {
-  color: #00b5c3;
-  margin: 10px 0;
-}
-body .title {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-body hr {
-  margin-top: 2%;
-  border-color: #00b5c3;
+  margin: 0;
+  padding: 0;
 }
 
-header {
+.container {
+  height: 100vh;
   display: grid;
-  grid-template-columns: 30% auto;
-  grid-column-gap: 2%;
+  grid-template-columns: 0.5fr 1.5fr
+  grid-template-rows: 1fr 8fr;
+  grid-template-areas:
+    "aside header header header "
+    "aside content content content "
+    "footer footer footer footer";
 }
 
-header .logo img {
+.header {
+  grid-area: header;
+}
+img {
   display: grid;
   align-items: center;
   justify-items: center;
   height: 25vh;
   border-radius: 20px;
-  border: 5px solid #00b5c3;
+  border: 3px solid white;
+}
+.aside {
+  grid-area: aside;
+  background-color: rgba(0, 181, 195, 0.2);
 }
 
-header .meta {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom: 2%;
+.content {
+  grid-area: content;
+  background-color: white;
 }
 
-.layout {
-  display: grid; /*Layout 2 column */
-  grid-template-columns: 40% auto; /*My first column is 40% of the body size, 
-                                    whereas the second column auto-matically takes the remaining body size*/
-  grid-column-gap: 2%; /* avoid the overlapping*/
+.footer {
+  grid-area: footer;
+  background-color: grey;
 }
-.layout a {
-  color: #000;
-  text-decoration: none;
-  font-size: 2em;
-  padding: 2% 2% 2% 0;
+@media screen and (max-width: 700px) {
+  /* for smatrphone*/
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 6fr 1fr;
+    grid-template-areas:
+      "header"
+      "aside"
+      "content"
+      "footer";
+  }
 }
-a:hover {
+/*for text with flex*/
+body {
+  font-family: "Roboto", sans-serif;
+}
+h1{
+  font-weight: 900;
+}
+h2{
+  font-weight: 500;
+}
+h3{
+  font-weight: 300;
+}
+.header {
+  display: flex;
+  align-items: center;
+}
+.aside {
+  color:#404040;
+  padding: 10px;
+}
+.content {
+  margin-left: 10px;
+  color:#404040;
+}
+.footer {
+  display: flex;
+  align-items: center;
+ justify-content: center;
+ background-color:#404040;
+
+  color: white;
+}
+.bg-color { /* for span color */
+  background-color: #00b5c3;
+  color: white;
+}
+ /* icon */
+.social-list {
+  display: flex; /*change align icon in column */
+  justify-content: space-around; /* space between icon */
+  list-style: none;
+  position: fixed;
+  right: 120px;
+  padding: 30px;
+  width: 125px;
+  margin: 0 auto; /* pour centrer */
+}
+.social-link {
   color: #00b5c3;
+  opacity: 0.4;
+  font-size: 1.5em;
 }
-.layout .email,
-.layout .website {
+.social-link:hover,
+.social-link:focus {
+  opacity: 1;
+}
+/* btn contact */
+.btn {
+  position: fixed;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #00b5c3;
+  border: none;
+  color: white;
+  border-radius: 30px;
   font-size: 1em;
+  text-decoration: none;
+  font-weight: 400;
+  transition: all 0.3s ease-in;
 }
-.layout .education {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-row-gap: 3%;
-}
-aside {
-  float: right;
-}
-.work-experiences {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  height: 50vh;
-  background-color: #f4f3f1;
-  padding: 5%;
-}
-.work-experiences .description {
-  margin: 1%;
-  font-size: 0.8em;
-}
-/* Container for skill bars */
-.container {
-  width: 100%; /* Full width */
-  background-color: #ddd; /* Grey background */
-
-  border-radius: 20px;
+.btn:hover {
+  background: transparent;
+  color: #00b5c3;
+  border: 2px solid #00b5c3;
 }
 
-.skills {
-  text-align: right; /* Right-align text */
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
-  color: white; /* White text color */
+/*for aside*/
+
+.img-contenair img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/*progress-bar*/
+
+
+.progress {
+  background: #404040;
+
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 1px;
+  display: flex;
+  height: 10px;
+  width: 200px;
+}
+
+.progress-value1 {
+  animation: load1 3s normal forwards;
+  box-shadow: 0 10px 10px -10px #fff;
+  border-radius: 100px;
+  background: #00b5c3;
   height: 8px;
+  width: 0;
 }
 
-.html-css {
-  width: 90%;
-  line-height: 8px;
-  background-color: #4caf50;
-} /* Green */
-.js {
-  width: 75%;
-  line-height: 8px;
-  background-color: #2196f3;
-} /* Blue */
-.php {
-  width: 65%;
-  line-height: 8px;
-  background-color: #f44336;
-} /* Red */
+@keyframes load1 {
+  0% { width: 0; }
+  100% { width: 95%; }
+}
+.progress-value2 {
+  animation: load2 3s normal forwards;
+  box-shadow: 0 10px 10px -10px #fff;
+  border-radius: 100px;
+  background: #00b5c3;
+  height: 8px;
+  width: 0;
+}
+
+@keyframes load2 {
+  0% { width: 0; }
+  100% { width: 75%; }
+}
+.progress-value3 {
+  animation: load3 3s normal forwards;
+  box-shadow: 0 10px 10px -10px #fff;
+  border-radius: 100px;
+  background: #00b5c3;
+  height: 8px;
+  width: 0;
+}
+
+@keyframes load3 {
+  0% { width: 0; }
+  100% { width: 65%; }
+}
